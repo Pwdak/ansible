@@ -1,0 +1,54 @@
+EDIT
+---------------------------SSH--------------------------------------
+# This file it is for how to add a private ssh key to ssh agent to make possible
+# connexion between my server and the Github 
+
+# To see if the private key is added to your ssh agent on your server
+	 ssh-add -l 
+
+# To start the ssh agent
+	  eval "$(ssh-agent -s)"
+
+# To add the private key to my ssh agent
+	  ssh-add /root/.ssh/id_rsa2
+
+# To see and copy the public key which must be copied to Github ssh part
+	  cat id_rsa2.pub
+
+--------------------------GIT-----------------------------------------
+# To import your repo in your local machine
+	  git clone git@github.com:Pwdak/ansible.git
+
+# To see if it is there, in our case it's named "ansible"
+	  cd ansible/
+	  ls
+	  cat README.md  --> it's the file inside our repo here
+
+# To identify yourself, you can use any name and mail
+	  git config --global user.name "Pwdak"
+	  git config --global user.email "koueviarnold@gmail.com"
+
+# To see if it's ok
+	  cat ~/.gitconfig
+
+# To modify the file inside the repo or add another one
+	  vi README.md	
+
+# To see if the change is made
+	  git status
+	  git diff README.md
+
+# To add my changed or new file
+	  git add README.md
+	  git status
+
+# To add my change to a commit level
+	  git commit -m "updated readme file, initial commit"
+
+# To now make the change works in Github
+	  git push origin main
+
+
+
+
+
